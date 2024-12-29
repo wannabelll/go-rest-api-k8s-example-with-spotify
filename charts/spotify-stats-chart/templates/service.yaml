@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "spotify-stats-chart.fullname" . }}
+  labels:
+    {{- include "spotify-stats-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: {{ .Values.service.name }}                                        #nodePort: {{ .Values.service.nodePort }}  # Ensure this is treated as an integer
+      protocol: {{ .Values.service.protocol }}
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      
+  selector:
+    {{- include "spotify-stats-chart.selectorLabels" . | nindent 4 }}
+
+    
