@@ -1,0 +1,13 @@
+1. Get the application URL by running these commands:
+ 1.1 If you have k8s cluster in Oracle MBox(like me, so Load Balancer will works as NodePort), you should use `http://Virtual-Machine_IP:NODEPORT/spotify/artist/stats/artistID` , 
+ where artistID = "3MtohoQqvZFtmRTwzp0xSH" as example. 
+
+ 2.1 In case you use cluster in Cloud, write  `http://EXTERNAL_IP:LB_PORT/spotify/artist/stats/artistID`
+ 2.2 To get Spotify stats from CLI: `curl http://CLUSTER-IP:NODEPORT/spotify/artist/stats/artistID` on machine where cluster stands, 
+  or take 1.1/1.2 steps just adding "curl" command before URL
+
+
+2. Good luck!
+
+
+
